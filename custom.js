@@ -81,25 +81,31 @@ function init() {
     dt = dt * dtsave;
     updateControls();
 
-    var trace1 = {
-        y: [N],
+    var N_new_mac_trace = {
+        y: [N_new_mac],
         mode: 'lines',
-        name: 'Nutrients'
+        name: 'Microphytobenthos nutrients'
     };
 
-    var trace2 = {
+    var N_new_MPB_trace = {
+        y: [N_new_MPB],
+        mode: 'lines',
+        name: 'Macomona nutrients'
+    }
+
+    var B_trace = {
         y: [B],
         mode: 'lines',
         name: 'Microphytobenthos Biomass mgC/m²'
     };
 
-    var trace3 = {
+    var B_mac_trace = {
         y: [B_mac],
         mode: 'lines',
         name: 'Macomono liliana Biomass mgC/m²'
     };
 
-    var data = [ trace1, trace2, trace3 ];
+    var data = [ B_trace, B_mac_trace, N_new_MPB_trace, N_new_mac_trace ];
 
     var layout = {
         xaxis: {
@@ -182,14 +188,14 @@ function advance() {
     // plot N, B_mac, B, N_MPB, N_mac - Biomass mgC/m2
     updateControls();
     Plotly.extendTraces('plot', {
-        y: [[N], [B], [B_mac]]
-    }, [0, 1, 2])
+        y: [[B], [B_mac], [N_mac], [N_MPB]]
+    }, [0,1,2,3])
 }
 
 function updateControls() {
-    $("#B").val(B);
-    $("#B_mac").val(B_mac);
-    $("#N").val(N);
+    $("input").each(function() {
+        $(this).val(eval(this.id));
+    })
 }
 
 init();
@@ -220,3 +226,8 @@ $("#play").click(function() {
 $("#step").click(function () {
     advance();
 });
+
+$("input").change(function(e) {
+    console.log(this.id, this.value);
+    eval(this.id + "=" + this.value);
+})

@@ -78,7 +78,7 @@ function init() {
     D_MPB_new=D_MPB; D_mac_new=D_mac; N_new=N;N_new_mac=N/2;N_new_MPB=N/2;
     dt=0.00001;
     dtsave=1000;
-    dt = dt * dtsave;
+    dt = 1;
     updateControls();
 
     var N_new_mac_trace = {

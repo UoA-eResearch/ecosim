@@ -78,10 +78,37 @@ function init() {
     D_MPB_new=D_MPB; D_mac_new=D_mac; N_new=N;N_new_mac=N/2;N_new_MPB=N/2;
     dt=0.00001;
     dtsave=1000;
+    dt = dt * dtsave;
     updateControls();
-}
 
-init();
+    var trace1 = {
+        y: [N],
+        mode: 'lines',
+        name: 'Nutrients'
+    };
+
+    var trace2 = {
+        y: [B],
+        mode: 'lines',
+        name: 'Microphytobenthos Biomass mgC/m²'
+    };
+
+    var trace3 = {
+        y: [B_mac],
+        mode: 'lines',
+        name: 'Macomono liliana Biomass mgC/m²'
+    };
+
+    var data = [ trace1, trace2, trace3 ];
+
+    var layout = {
+        xaxis: {
+          title: 'Days'
+        },
+    };
+
+    Plotly.newPlot('plot', data, layout);
+}
 
 function advance() {
     N_old=N_new; 
@@ -154,6 +181,9 @@ function advance() {
     Detritus_MPB_n = D_MPB/conversion_C2N/depthbenthiclayer;
     // plot N, B_mac, B, N_MPB, N_mac - Biomass mgC/m2
     updateControls();
+    Plotly.extendTraces('plot', {
+        y: [[N], [B], [B_mac]]
+    }, [0, 1, 2])
 }
 
 function updateControls() {
@@ -162,7 +192,7 @@ function updateControls() {
     $("#N").val(N);
 }
 
-updateControls();
+init();
 
 $("#reset").click(function () {
     init();
@@ -174,7 +204,7 @@ setInterval(function() {
     if (playing) {
         advance();
     }
-}, 1000);
+}, 10);
 
 $("#play").click(function() {
     playing = !playing;

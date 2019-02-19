@@ -84,13 +84,13 @@ function init() {
     var N_new_mac_trace = {
         y: [N_new_mac],
         mode: 'lines',
-        name: 'Microphytobenthos nutrients'
+        name: 'Macomona nutrients'
     };
 
     var N_new_MPB_trace = {
         y: [N_new_MPB],
         mode: 'lines',
-        name: 'Macomona nutrients'
+        name: 'Microphytobenthos nutrients'
     }
 
     var B_trace = {
@@ -188,7 +188,7 @@ function advance() {
     // plot N, B_mac, B, N_MPB, N_mac - Biomass mgC/m2
     updateControls();
     Plotly.extendTraces('plot', {
-        y: [[B], [B_mac], [N_mac], [N_MPB]]
+        y: [[B], [B_mac], [N_new_MPB], [N_new_mac]]
     }, [0,1,2,3])
 }
 

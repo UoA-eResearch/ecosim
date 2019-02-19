@@ -227,7 +227,7 @@ $("#step").click(function () {
     advance();
 });
 
-$("input").change(function(e) {
+$("input").on("input", function(e) {
     console.log(this.id, this.value);
     eval(this.id + "=" + this.value);
-})
+});

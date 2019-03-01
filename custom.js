@@ -84,13 +84,15 @@ function init() {
     var N_new_mac_trace = {
         y: [N_new_mac],
         mode: 'lines',
-        name: 'Macomona nutrients'
+        name: 'Macomona nutrients',
+        visible: "legendonly"
     };
 
     var N_new_MPB_trace = {
         y: [N_new_MPB],
         mode: 'lines',
-        name: 'Microphytobenthos nutrients'
+        name: 'Microphytobenthos nutrients',
+        visible: "legendonly"
     }
 
     var B_trace = {
@@ -102,7 +104,7 @@ function init() {
     var B_mac_trace = {
         y: [B_mac],
         mode: 'lines',
-        name: 'Macomono liliana Biomass mgC/m²'
+        name: 'Macomona liliana Biomass mgC/m²'
     };
 
     var data = [ B_trace, B_mac_trace, N_new_MPB_trace, N_new_mac_trace ];

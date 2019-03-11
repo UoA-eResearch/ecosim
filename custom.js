@@ -102,6 +102,7 @@ function init() {
     dtsave=1000;
     dt = 1;
     updateControls();
+    updateBoxes();
 
     var N_new_mac_trace = {
         y: [N_new_mac],

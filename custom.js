@@ -219,6 +219,7 @@ function advance() {
 }
 
 function updateBoxes() {
+    if (!svg) return;
     B_scale = (B_new / 400).clamp(.1, 1.5)
     console.log("new b scale " + B_scale);
     b = $("#B", svg);

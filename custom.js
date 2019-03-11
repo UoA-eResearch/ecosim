@@ -1,3 +1,25 @@
+/**
+ * Returns a number whose value is limited to the given range.
+ *
+ * Example: limit the output of this computation to between 0 and 255
+ * (x * 255).clamp(0, 255)
+ *
+ * @param {Number} min The lower boundary of the output range
+ * @param {Number} max The upper boundary of the output range
+ * @returns A number in the range [min, max]
+ * @type Number
+ */
+Number.prototype.clamp = function(min, max) {
+    return Math.min(Math.max(this, min), max);
+};
+
+var svgholder = document.getElementById("boxes");
+
+svgholder.onload = function() {
+    console.log(this);
+    window.svg = $("svg", this.contentDocument);
+}
+
 function init() {
 
     depth=1; //what it says, meters
@@ -189,9 +211,19 @@ function advance() {
     Detritus_MPB_n = D_MPB/conversion_C2N/depthbenthiclayer;
     // plot N, B_mac, B, N_MPB, N_mac - Biomass mgC/m2
     updateControls();
+    updateBoxes();
     Plotly.extendTraces('plot', {
         y: [[B], [B_mac], [N_new_MPB], [N_new_mac]]
     }, [0,1,2,3])
+}
+
+function updateBoxes() {
+    B_scale = (B_new / 400).clamp(.1, 1.5)
+    console.log("new b scale " + B_scale);
+    b = $("#B", svg);
+    var bbox = b[0].getBBox();
+    b.attr("transform-origin", bbox.x + " " + bbox.y);
+    b.attr("transform", "scale(" + B_scale + ")");
 }
 
 function updateControls() {
@@ -232,4 +264,5 @@ $("#step").click(function () {
 $("input").on("input", function(e) {
     console.log(this.id, this.value);
     eval(this.id + "=" + this.value);
+    updateBoxes();
 });

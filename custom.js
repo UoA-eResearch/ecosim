@@ -15,6 +15,8 @@ Number.prototype.clamp = function(min, max) {
 
 var svgholder = document.getElementById("boxes");
 
+window.svg = null;
+
 svgholder.onload = function() {
     console.log(this);
     window.svg = $("svg", this.contentDocument);

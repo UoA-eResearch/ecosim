@@ -228,11 +228,17 @@ function updateBoxes() {
     var bbox = b[0].getBBox();
     b.attr("transform-origin", bbox.x + " " + bbox.y);
     b.attr("transform", "scale(" + B_scale + ")");
+
+    B_mac_scale = (B_mac_new / 300).clamp(.1, 1.5);
+    b = $("#B_mac", svg);
+    bbox = b[0].getBBox();
+    b.attr("transform-origin", bbox.x + " " + bbox.y);
+    b.attr("transform", "scale(" + B_mac_scale + ")");
 }
 
 function updateControls() {
     $("input").each(function() {
-        $(this).val(eval(this.id));
+        $(this).val(Math.round(eval(this.id)));
     })
 }
 

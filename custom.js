@@ -13,15 +13,6 @@ Number.prototype.clamp = function(min, max) {
     return Math.min(Math.max(this, min), max);
 };
 
-var svgholder = document.getElementById("boxes");
-
-window.svg = null;
-
-svgholder.onload = function() {
-    console.log(this);
-    window.svg = $("svg", this.contentDocument);
-}
-
 function init() {
 
     depth=1; //what it says, meters
@@ -221,19 +212,24 @@ function advance() {
 }
 
 function updateBoxes() {
-    if (!svg) return;
+    svg = $("svg", $("#boxes")[0].contentDocument);
+    if (svg.length == 0) return;
     B_scale = (B_new / 400).clamp(.1, 1.5)
     console.log("new b scale " + B_scale);
     b = $("#B", svg);
     var bbox = b[0].getBBox();
-    b.attr("transform-origin", bbox.x + " " + bbox.y);
-    b.attr("transform", "scale(" + B_scale + ")");
+    b.css({
+        "transform-origin": bbox.x + "px " + bbox.y + "px",
+        "transform": "scale(" + B_scale + ")",
+    });
 
     B_mac_scale = (B_mac_new / 300).clamp(.1, 1.5);
     b = $("#B_mac", svg);
     bbox = b[0].getBBox();
-    b.attr("transform-origin", bbox.x + " " + bbox.y);
-    b.attr("transform", "scale(" + B_mac_scale + ")");
+    b.css({
+        "transform-origin": bbox.x + "px " + bbox.y + "px",
+        "transform": "scale(" + B_mac_scale + ")"
+    });
 }
 
 function updateControls() {

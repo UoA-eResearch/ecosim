@@ -100,14 +100,14 @@ function init() {
     var N_new_mac_trace = {
         y: [N_new_mac],
         mode: 'lines',
-        name: 'Macomona nutrients',
+        name: 'Macomona liliana nutrients mgC/m²',
         visible: "legendonly"
     };
 
     var N_new_MPB_trace = {
         y: [N_new_MPB],
         mode: 'lines',
-        name: 'Microphytobenthos nutrients',
+        name: 'Microphytobenthos nutrients mgC/m²',
         visible: "legendonly"
     }
 
@@ -123,7 +123,28 @@ function init() {
         name: 'Macomona liliana Biomass mgC/m²'
     };
 
-    var data = [ B_trace, B_mac_trace, N_new_MPB_trace, N_new_mac_trace ];
+    var D_mac_trace = {
+        y: [D_mac],
+        mode: 'lines',
+        name: 'Macomona liliana detritus mgC/m²',
+        visible: "legendonly"
+    };
+
+    var D_MPB_trace = {
+        y: [D_MPB],
+        mode: 'lines',
+        name: 'Microphytobenthos detritus mgC/m²',
+        visible: "legendonly"
+    };
+
+    var mud_content_trace = {
+        y: [mud_content],
+        mode: 'lines',
+        name: 'Mud Content',
+        visible: "legendonly"
+    }
+
+    var data = [ B_mac_trace, B_trace, N_new_mac_trace, N_new_MPB_trace, D_mac_trace, D_MPB_trace, mud_content_trace ];
 
     var layout = {
         xaxis: {
@@ -140,7 +161,6 @@ function advance() {
     N_old_MPB=N_new_MPB;
     B_old=B_new;B_mac_old=B_mac_new;
     D_MPB_old=D_MPB_new; D_mac_old=D_mac_new;
-    mud_content=0.1;
         
     //biomass dynamics
     //the reduced uptake when sediment is muddier. Look at 14.70, p. 479
@@ -200,15 +220,16 @@ function advance() {
     }
     //****WARNING !!!!! WE NEED TO CHECK
     //depthbenthiclayer/conversion_C2N (28/8/2018)
-    MPB_n = B/conversion_C2N/depthbenthiclayer;
-    Detritus_mac_n = D_mac/conversion_C2N/depthbenthiclayer;
-    Detritus_MPB_n = D_MPB/conversion_C2N/depthbenthiclayer;
+    //MPB_n = B/conversion_C2N/depthbenthiclayer;
+    //Detritus_mac_n = D_mac/conversion_C2N/depthbenthiclayer;
+    //Detritus_MPB_n = D_MPB/conversion_C2N/depthbenthiclayer;
     // plot N, B_mac, B, N_MPB, N_mac - Biomass mgC/m2
     updateControls();
     updateBoxes();
     Plotly.extendTraces('plot', {
-        y: [[B], [B_mac], [N_new_MPB], [N_new_mac]]
-    }, [0,1,2,3])
+        //B_mac_trace, B_trace, N_new_mac_trace, N_new_MPB_trace, D_mac_trace, D_MPB_trace, mud_content_trace
+        y: [[B_mac], [B], [N_new_mac], [N_new_MPB], [D_mac], [D_MPB], [mud_content]]
+    }, [0,1,2,3,4,5,6])
 }
 
 function updateBoxes() {
@@ -234,7 +255,11 @@ function updateBoxes() {
 
 function updateControls() {
     $("input").each(function() {
-        $(this).val(Math.round(eval(this.id)));
+        var val = eval(this.id);
+        if (this.id != "mud_content") {
+            val = Math.round(val);
+        }
+        $(this).val(val);
     })
 }
 

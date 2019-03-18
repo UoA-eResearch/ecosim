@@ -4,9 +4,4 @@ html,body {
 
 #title {
     text-align: center;
-    height: 50px;
-}
-
-#main {
-    height: calc(100% - 50px);
 }

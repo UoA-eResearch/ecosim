@@ -152,7 +152,7 @@ function init() {
         },
     };
 
-    Plotly.newPlot('plot', data, layout);
+    Plotly.newPlot('plot', data, layout, {responsive: true});
 }
 
 function advance() {

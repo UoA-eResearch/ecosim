@@ -232,25 +232,38 @@ function advance() {
     }, [0,1,2,3,4,5,6])
 }
 
+function scaleBox(boxID, scale) {
+    var box = $(boxID, svg);
+    if (box.length == 0) {
+        console.warn(boxID + " isn't ready yet!");
+        return;
+    }
+    var bbox = box[0].getBBox();
+    var cx = bbox.x + bbox.width / 2;
+    var cy = bbox.y + bbox.height / 2;
+    box.css({
+        "transform-origin": cx + "px " + cy + "px",
+        "transform": "scale(" + scale.clamp(.5, 1.2) + ")"
+    });
+}
+
 function updateBoxes() {
     svg = $("svg", $("#boxes")[0].contentDocument);
     if (svg.length == 0) return;
-    B_scale = (B_new / 400).clamp(.1, 1.5)
-    console.log("new b scale " + B_scale);
-    b = $("#B", svg);
-    var bbox = b[0].getBBox();
-    b.css({
-        "transform-origin": bbox.x + "px " + bbox.y + "px",
-        "transform": "scale(" + B_scale + ")",
-    });
 
-    B_mac_scale = (B_mac_new / 300).clamp(.1, 1.5);
-    b = $("#B_mac", svg);
-    bbox = b[0].getBBox();
-    b.css({
-        "transform-origin": bbox.x + "px " + bbox.y + "px",
-        "transform": "scale(" + B_mac_scale + ")"
-    });
+    scaleBox("#B_mac", B_mac_new / 300);
+    scaleBox("#B_mac_D_mac", B_mac_new / 300);
+    scaleBox("#B", B_new / 400);
+    scaleBox("#B_D_MPB", B_new / 400);
+    scaleBox("#B_B_mac", B_new / 400);
+    scaleBox("#nutrients_depth", N_new_mac / 50);
+    scaleBox("#nutrients_depth_surface_nutrients", N_new_mac / 50);
+    scaleBox("#surface_nutrients", N_new_MPB / 50);
+    scaleBox("#surface_nutrients_B", N_new_MPB / 50);
+    scaleBox("#D_mac", D_mac_new / 10);
+    scaleBox("#D_mac_nutrients_depth", D_mac_new / 10);
+    scaleBox("#D_MPB", D_MPB_new / 100);
+    scaleBox("#D_MPB_surface_nutrients", D_MPB_new / 100);
 }
 
 function updateControls() {

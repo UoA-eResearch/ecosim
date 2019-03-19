@@ -104,6 +104,9 @@ function init() {
         line: {
             color: "00ffffff"
         },
+        hoverlabel: {
+            namelength: -1
+        },
         visible: "legendonly"
     };
 
@@ -112,7 +115,10 @@ function init() {
         mode: 'lines',
         name: 'Microphytobenthos nutrients mgC/m²',
         line: {
-            color: "ccccffff"
+            color: "dd55ffff"
+        },
+        hoverlabel: {
+            namelength: -1
         },
         visible: "legendonly"
     }
@@ -121,7 +127,10 @@ function init() {
         y: [B],
         mode: 'lines',
         line: {
-            color: "a8d08cff"
+            color: "71c837ff"
+        },
+        hoverlabel: {
+            namelength: -1
         },
         name: 'Microphytobenthos Biomass mgC/m²'
     };
@@ -130,7 +139,10 @@ function init() {
         y: [B_mac],
         mode: 'lines',
         line: {
-            color: "ffd966ff"
+            color: "2a7fffff"
+        },
+        hoverlabel: {
+            namelength: -1
         },
         name: '<i>Macomona liliana</i> Biomass mgC/m²'
     };
@@ -140,6 +152,9 @@ function init() {
         mode: 'lines',
         line: {
             color: "ff9955ff"
+        },
+        hoverlabel: {
+            namelength: -1
         },
         name: '<i>Macomona liliana</i> detritus mgC/m²',
         visible: "legendonly"
@@ -152,6 +167,9 @@ function init() {
         line: {
             color: "ff5555ff"
         },
+        hoverlabel: {
+            namelength: -1
+        },
         visible: "legendonly"
     };
 
@@ -160,6 +178,9 @@ function init() {
         mode: 'lines',
         line: {
             color: "996633ff"
+        },
+        hoverlabel: {
+            namelength: -1
         },
         name: 'Mud Content',
         visible: "legendonly"

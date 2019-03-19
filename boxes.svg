@@ -44,12 +44,12 @@
      id="namedview115"
      showgrid="false"
      inkscape:zoom="2.8095238"
-     inkscape:cx="74.585198"
-     inkscape:cy="122.68435"
+     inkscape:cx="48.958075"
+     inkscape:cy="109.51486"
      inkscape:window-x="1987"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg113" />
+     inkscape:current-layer="surface_nutrients_B" />
   <clipPath
      id="g4cf991c4e2_0_0.0">
     <path
@@ -119,7 +119,7 @@
        d="m 197.02105,89.30521 h 49.07086 v 33.60629 h -49.07086 z"
        id="path35"
        inkscape:connector-curvature="0"
-       style="fill:#ccccff;fill-rule:evenodd" />
+       style="fill:#dd55ff;fill-rule:evenodd" />
     <path
        stroke-miterlimit="800.0"
        d="m 197.02105,89.30521 h 49.07086 v 33.60629 h -49.07086 z"
@@ -144,7 +144,7 @@
        d="M 6.6677227,91.241611 H 73.021106 V 124.51184 H 6.6677227 Z"
        id="mpbbg"
        inkscape:connector-curvature="0"
-       style="fill:#a8d08c;fill-rule:evenodd;stroke-width:0.99000001"
+       style="fill:#71c837;fill-rule:evenodd;stroke-width:0.99000001"
        inkscape:label="mpbbg" />
     <path
        stroke-miterlimit="800.0"
@@ -255,7 +255,7 @@
        d="M 7.00399,152.24808 H 76.5158 v 33.60629 H 7.00399 Z"
        id="path79"
        inkscape:connector-curvature="0"
-       style="fill:#ffd966;fill-rule:evenodd" />
+       style="fill:#2a7fff;fill-rule:evenodd" />
     <path
        stroke-miterlimit="800.0"
        d="M 7.00399,152.24808 H 76.5158 v 33.60629 H 7.00399 Z"
@@ -274,7 +274,7 @@
        style="fill:#000000;fill-rule:nonzero" />
   </g>
   <path
-     style="fill:#a8d08c;fill-rule:evenodd;fill-opacity:1"
+     style="fill:#71c837;fill-rule:evenodd;fill-opacity:1"
      inkscape:connector-curvature="0"
      id="B_B_mac"
      d="m 44.91665,128.15491 v 11.96851 h 4.09448 l -8.18896,8.18896 -8.189,-8.18896 h 4.09448 v -11.96851 z"
@@ -292,7 +292,7 @@
      d="m 168.98479,178.43401 11.43613,-3.6124 -1.22837,-3.90551 10.26468,5.34469 -5.35129,10.27738 -1.22833,-3.90552 -11.43612,3.61239 z"
      inkscape:label="#path95" />
   <path
-     style="fill:#ffd966;fill-rule:evenodd;fill-opacity:1"
+     style="fill:#2a7fff;fill-rule:evenodd;fill-opacity:1"
      inkscape:connector-curvature="0"
      id="B_mac_D_mac"
      d="m 80.58461,170.23587 10.86334,5.02966 1.7244,-3.71655 3.98706,10.87585 -10.88468,3.9903 1.7244,-3.71652 -10.86334,-5.02967 z"
@@ -304,13 +304,13 @@
        d="m 68.00243,128.02701 -4.06689,6.16534 h 3.08267 v 0 c 7.82184,11.30503 35.81564,19.01386 67.06888,18.46921 v 0 C 105.1278,152.15689 80.4313,144.66757 73.18358,134.19235 h 3.08268 z"
        id="path103"
        inkscape:connector-curvature="0"
-       style="fill:#ccccff;fill-rule:evenodd;fill-opacity:1" />
+       style="fill:#dd55ff;fill-rule:evenodd;fill-opacity:1" />
     <path
        inkscape:label="#path105"
        d="m 137.16977,152.68841 c 36.49753,0 66.08466,-11.04129 66.08466,-24.66141 h -6.16538 v 0 c 0,13.62012 -29.5871,24.66141 -66.08462,24.66141 z"
        id="path105"
        inkscape:connector-curvature="0"
-       style="fill:#ccccff;fill-rule:evenodd;fill-opacity:1" />
+       style="fill:#dd55ff;fill-rule:evenodd;fill-opacity:1" />
   </g>
   <path
      style="fill:#000000;fill-opacity:0;fill-rule:evenodd"
@@ -318,7 +318,7 @@
      id="path107"
      d="m 134.08709,152.66156 v 0 C 105.1278,152.15689 80.4313,144.66757 73.18359,134.19235 h 3.08267 l -8.26382,-6.16534 -4.0669,6.16534 h 3.08267 v 0 c 7.53363,10.88846 33.85172,18.49607 63.98621,18.49607 h 6.16534 c 36.49753,0 66.08466,-11.04129 66.08466,-24.66141 h -6.16538 v 0 c 0,13.62012 -29.58709,24.66141 -66.08462,24.66141" />
   <path
-     style="fill:#a8d08c;fill-rule:evenodd;fill-opacity:1"
+     style="fill:#71c837;fill-rule:evenodd;fill-opacity:1"
      inkscape:connector-curvature="0"
      id="B_D_MPB"
      d="m 77.73784,105.43643 11.47861,-3.50162 -1.19687,-3.91339 10.2222,5.43863 -5.43479,10.21491 -1.19684,-3.9134 -11.47863,3.50165 z"

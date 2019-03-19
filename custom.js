@@ -337,9 +337,11 @@ $("#play").click(function() {
     if (playing) {
         $("#play i").attr("class", "fas fa-pause");
         $("#play span").text("Pause");
+        $("#step").hide();
     } else {
         $("#play i").attr("class", "fas fa-play");
         $("#play span").text("Play");
+        $("#step").show();
     }
 });
 

@@ -100,7 +100,10 @@ function init() {
     var N_new_mac_trace = {
         y: [N_new_mac],
         mode: 'lines',
-        name: 'Macomona liliana nutrients mgC/m²',
+        name: '<i>Macomona liliana</i> nutrients mgC/m²',
+        line: {
+            color: "00ffffff"
+        },
         visible: "legendonly"
     };
 
@@ -108,25 +111,37 @@ function init() {
         y: [N_new_MPB],
         mode: 'lines',
         name: 'Microphytobenthos nutrients mgC/m²',
+        line: {
+            color: "ccccffff"
+        },
         visible: "legendonly"
     }
 
     var B_trace = {
         y: [B],
         mode: 'lines',
+        line: {
+            color: "a8d08cff"
+        },
         name: 'Microphytobenthos Biomass mgC/m²'
     };
 
     var B_mac_trace = {
         y: [B_mac],
         mode: 'lines',
-        name: 'Macomona liliana Biomass mgC/m²'
+        line: {
+            color: "ffd966ff"
+        },
+        name: '<i>Macomona liliana</i> Biomass mgC/m²'
     };
 
     var D_mac_trace = {
         y: [D_mac],
         mode: 'lines',
-        name: 'Macomona liliana detritus mgC/m²',
+        line: {
+            color: "ff9955ff"
+        },
+        name: '<i>Macomona liliana</i> detritus mgC/m²',
         visible: "legendonly"
     };
 
@@ -134,12 +149,18 @@ function init() {
         y: [D_MPB],
         mode: 'lines',
         name: 'Microphytobenthos detritus mgC/m²',
+        line: {
+            color: "ff5555ff"
+        },
         visible: "legendonly"
     };
 
     var mud_content_trace = {
         y: [mud_content],
         mode: 'lines',
+        line: {
+            color: "996633ff"
+        },
         name: 'Mud Content',
         visible: "legendonly"
     }

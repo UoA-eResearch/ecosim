@@ -29,3 +29,7 @@ html,body {
     border-radius: 5px;
     padding: 15px;
 }
+
+#controls button {
+    margin-bottom: 5px;
+}

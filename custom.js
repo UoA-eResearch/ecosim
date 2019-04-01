@@ -99,6 +99,7 @@ function init() {
 
     var N_new_mac_trace = {
         y: [N_new_mac],
+        customdata: "N_new_mac",
         mode: 'lines',
         name: '<i>Macomona liliana</i> nutrients mgC/m²',
         line: {
@@ -112,6 +113,7 @@ function init() {
 
     var N_new_MPB_trace = {
         y: [N_new_MPB],
+        customdata: "N_new_MPB",
         mode: 'lines',
         name: 'Microphytobenthos nutrients mgC/m²',
         line: {
@@ -125,6 +127,7 @@ function init() {
 
     var B_trace = {
         y: [B],
+        customdata: "B",
         mode: 'lines',
         line: {
             color: "71c837ff"
@@ -137,6 +140,7 @@ function init() {
 
     var B_mac_trace = {
         y: [B_mac],
+        customdata: "B_mac",
         mode: 'lines',
         line: {
             color: "2a7fffff"
@@ -149,6 +153,7 @@ function init() {
 
     var D_mac_trace = {
         y: [D_mac],
+        customdata: "D_mac",
         mode: 'lines',
         line: {
             color: "ff9955ff"
@@ -162,6 +167,7 @@ function init() {
 
     var D_MPB_trace = {
         y: [D_MPB],
+        customdata: "D_MPB",
         mode: 'lines',
         name: 'Microphytobenthos detritus mgC/m²',
         line: {
@@ -175,6 +181,7 @@ function init() {
 
     var mud_content_trace = {
         y: [mud_content],
+        customdata: "mud_content",
         mode: 'lines',
         line: {
             color: "996633ff"
@@ -196,6 +203,50 @@ function init() {
 
     Plotly.newPlot('plot', data, layout, {responsive: true});
 }
+
+$("#plot").on('plotly_hover', function(event, data){
+    if (playing) return;
+    svg = $("svg", $("#boxes")[0].contentDocument);
+    if (svg.length == 0) return;
+
+    for (var i in data.points) {
+        var p = data.points[i];
+        var name = p.data.customdata;
+        var val = p.y;
+        console.log(name, val);
+        switch(name) {
+            case "B_mac":
+                scaleBox("#B_mac", val / 300);
+                scaleBox("#B_mac_D_mac", val / 300);
+                break;
+            case "B":
+                scaleBox("#B", val / 400);
+                scaleBox("#B_D_MPB", val / 400);
+                scaleBox("#B_B_mac", val / 400);
+                break;
+            case "N_new_mac":
+                scaleBox("#nutrients_depth", val / 50);
+                scaleBox("#nutrients_depth_surface_nutrients", val / 50);
+                break;
+            case "N_new_MPB":
+                scaleBox("#surface_nutrients", val / 50);
+                scaleBox("#surface_nutrients_B", val / 50);
+                break;
+            case "D_mac":
+                scaleBox("#D_mac", val / 10);
+                scaleBox("#D_mac_nutrients_depth", val / 10);
+                break;
+            case "D_MPB":
+                scaleBox("#D_MPB", val / 100);
+                scaleBox("#D_MPB_surface_nutrients", val / 100);
+                break;
+        }
+    }
+});
+
+$("#plot").on("plotly_unhover", function() {
+    updateBoxes();
+});
 
 function advance() {
     N_old=N_new; 

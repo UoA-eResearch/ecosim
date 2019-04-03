@@ -13,6 +13,22 @@ Number.prototype.clamp = function(min, max) {
     return Math.min(Math.max(this, min), max);
 };
 
+function HN() {
+    B=400;           //biomass mgC/m2
+    B_mac=300;     //biomass mgC/m2
+    D_mac=10.0;     //detritus 
+    D_MPB=100.0;     //detritus 
+    N=100.0;     //nutrient
+}
+
+function LN() {
+    B=1;           //biomass mgC/m2
+    B_mac=1;     //biomass mgC/m2
+    D_mac=0;     //detritus 
+    D_MPB=0;     //detritus 
+    N=0;     //nutrient
+}
+
 function init() {
 
     depth=1; //what it says, meters
@@ -54,11 +70,7 @@ function init() {
     // D_mac=10.0*ones(tmax/100,1);     //detritus 
     // D_MPB=10.0*ones(tmax/100,1);     //detritus 
     // N=1000000.0*ones(tmax/100,1);     //nutrient 
-    B=400;           //biomass mgC/m2
-    B_mac=300;     //biomass mgC/m2
-    D_mac=10.0;     //detritus 
-    D_MPB=100.0;     //detritus 
-    N=100.0;     //nutrient
+    eval(scenario + "()")
     IN=1000;                   //external source of nutrient. It needs to have the same units as N & Kn
     density_mac=0.1; //this can only change between 0 and 1
 
@@ -369,6 +381,7 @@ function updateControls() {
     })
 }
 
+scenario = "HN";
 init();
 
 $("#reset").click(function () {
@@ -404,4 +417,9 @@ $("input").on("input", function(e) {
     console.log(this.id, this.value);
     eval(this.id + "=" + this.value);
     updateBoxes();
+});
+
+$("#scenario").change(function() {
+    scenario = this.value;
+    init();
 });
